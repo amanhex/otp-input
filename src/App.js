@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import React from 'react';
+import OtpInput from './Components/OtpInput';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [otp, setOtp] = useState('');
+  const onChange = (value) => setOtp(value);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <h1>Phone Verification</h1>
+        <hr />
+        <h3 className='container-2'>Enter the OTP you received on 99903-3XXXX</h3>
+        <OtpInput value={otp} valueLength={6} onChange={onChange} />
+        <h4 className='container-3'>Change Number</h4>
+        <h4 className='container-3'>Re-Send OTP</h4> <br />
+      </div>
+      <button className='container-4'>Verify Phone Number</button>
     </div>
-  );
+  );       
 }
-
-export default App;
